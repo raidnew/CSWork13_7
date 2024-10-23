@@ -1,0 +1,60 @@
+﻿<Window x:Class="CSWork12_5.Bank.Views.WindowEditClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:CSWork12_5.Bank.ViewModels"
+        mc:Ignorable="d"
+        Title="EditClient" Height="465" Width="378">
+    <Window.DataContext>
+        <viewModel:WindowEditClientViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" Content="First Name"/>
+                    <TextBox Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" Name="FirstName" Text="{Binding IsEditedBankClient.FirstName}"/>
+                    <Label Grid.Row="1" Grid.Column="0" Content="Last Name"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" TextWrapping="Wrap" Name="LastName" Text="{Binding IsEditedBankClient.LastName}"/>
+                    <Label Grid.Row="2" Grid.Column="0" Content="Third Name"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" TextWrapping="Wrap" Name="ThirdName" Text="{Binding IsEditedBankClient.ThirdName}"/>
+                    <Label Grid.Row="3" Grid.Column="0" Content="Account"/>
+                    <TextBox Grid.Row="3" Grid.Column="1" TextWrapping="Wrap" Name="Account" Text="{Binding IsEditedBankClient.Account.Amount}"/>
+                    <Label Grid.Row="4" Grid.Column="0" Content="Deposit Account"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" TextWrapping="Wrap" Name="DepositAccount" Text="{Binding IsEditedBankClient.DepositAccount.Amount}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Command="{Binding ClickSavePerson}">Save</Button>
+            <Button Grid.Row="1" Command="{Binding ClickCancel}">Cancel</Button>
+        </Grid>
+    </Grid>
+</Window>

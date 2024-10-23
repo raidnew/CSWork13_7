@@ -1,0 +1,43 @@
+﻿<Window x:Class="CSWork12_5.Bank.Views.WindowBanksClients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:CSWork12_5.Bank.ViewModels"
+        mc:Ignorable="d"
+        Title="WindowBanksUsers" Height="450" Width="800">
+    <Window.DataContext>
+        <viewModel:WindowBanksClientsViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <DataGrid ItemsSource="{Binding BankClients}" AutoGenerateColumns="False" SelectedItem="{Binding SelectedBankClient}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding ID}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding LastName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding ThirdName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Account" Binding="{Binding Account.Amount}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Deposit Account" Binding="{Binding DepositAccount.Amount}"></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+                <RowDefinition Height="40"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Command="{Binding ClickAddBankClient}">Add Client</Button>
+            <Button Grid.Row="1" Command="{Binding ClickEditBankClient}">Edit Client</Button>
+            <Button Grid.Row="2" Command="{Binding ClickTransfer}">Transfer</Button>
+        </Grid>
+    </Grid>
+</Window>
